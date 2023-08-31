@@ -26,3 +26,37 @@ while(numbers < 100) {
 
 
 // Excercise 3: Checkerboard
+// had to look up a program for the initial code, credit to stackoverflow
+
+function checkerboard (para = 8) {   
+    if (para % 2 == 0) {
+    for (var x = 1; x <= para; x++) {
+        let str = "";
+         for (var y = 1; y <= para; y++) {
+            
+            if (x % 2){
+                if (y % 2){
+                    str = str + " ";
+                } else {
+                    str = str + "#";
+                }
+         } else if (y % 2) {
+            str = str + "#";
+         } else {
+            str = str + " ";
+         }
+        }
+        console.log(str)
+    }
+    } else {
+        console.log("para must be an even number!")
+    }
+}
+
+checkerboard();  // uses the base parameters of 8
+checkerboard(para = 10); // uses the parameter of 10, parameter can be any even number
+checkerboard(para = 9); // returns the line "para must be an even number"
+
+// program loops based on the rows and columns changing which symbol is added to the string 
+// depending on if its an even row, an even column, or both. While also checking to ensure that 
+// the parameter is even to make an even number of columns and rows in the checkerboard
