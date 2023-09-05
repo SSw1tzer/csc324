@@ -33,7 +33,6 @@ function checkerboard (para = 8) {
     for (var x = 1; x <= para; x++) {
         let str = "";
          for (var y = 1; y <= para; y++) {
-            
             if (x % 2){
                 if (y % 2){
                     str = str + " ";
