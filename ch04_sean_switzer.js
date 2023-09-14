@@ -38,11 +38,41 @@ console.log(sum(range(6, 36))); //651
 console.log(sum(range(7, 24))); //279
 
 // Excercise 2 Reversing an Array
+function reverseArray(array = []) {
+    let len = array.length;
+    let revArr = [];
+    for (let i = 1; i <= len; i++) {
+        revArr.push(array[len-i]);
+    }
+    return revArr;
+}
+
+console.log(reverseArray(["A", "B", "C"])); // → ["C", "B", "A"];
+console.log(reverseArray(["A", "B", "C", "D", "E"]));
+console.log(reverseArray([1,2,3,4,5,6,7,8,9,10]));
 
 
+function reverseArrayInPlace(array = []) {
+    let len = Math.floor(array.length/2);  //Math.floor rounds down to allow the function to find the outersides of the array
+    let holdValEnd = [];
+    let holdValBeg = [];
+    for (let i = 1; i <= len; i++) {  // finds and stores the end values of the array entering them from the end
+        holdValEnd.push(array[array.length - i]);
+    }
+    for (let z = 0; z < len; z++) {  // finds and stores the beggining values of the array entering them from the beggining
+        holdValBeg.unshift(array[array.length - (array.length - z)]);
+        }
+    array.splice(0, len, holdValEnd); // splices the held value of the end numbers of the array into the original now at the beggining
+    array.splice(array.length - len, len, holdValBeg); // splices the beggining values into the original now at the end
+    return array;
+}
 
-// Optional
-// Excercise 3 A list
 
-
-//Excercise 4 Deep Comparison
+// couldn't figure out how to remove brackets from final array, 
+// tried coercing into a string, separating the string, and many other actions but to no avail.
+let arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+let arrayValue1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+reverseArrayInPlace(arrayValue1);
+console.log(arrayValue1);
