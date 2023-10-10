@@ -4,7 +4,7 @@
 /* Use the reduce method in combination with the concat method to “flatten” an array of arrays
 into a single array that has all the elements of the original arrays. */
 let arrays = [[1, 2, 3], [4, 5], [6]];
-const flatten = arr = arr.reduce((arrays, v) => {  // v is a placeholder variable to hold values (accumulator)
+const flatten = arr => arr.reduce((arrays, v) => {  // v is a placeholder variable to hold values (accumulator)
     if (v instanceof Array) { // instanceof checks to see if the object held in v is in the array
       return arrays.concat(flatten(v)) 
     } else {
